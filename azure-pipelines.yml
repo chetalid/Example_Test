@@ -26,7 +26,7 @@ stages:
                 python3 -m pip install webdriver-manager
           - task: CmdLine@2
             inputs:
-              script: 'python automated-testing/selenium/run_ui_tests.py'
+              script: 'python3 automated-testing/selenium/run_ui_tests.py'
   - deployment: deploy_to_vm
     displayName: DeployAppToVM
     environment:
