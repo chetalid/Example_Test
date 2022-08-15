@@ -6,8 +6,8 @@
 
 # Resource Group/Location
 location = "East US"
-resource_group = "quality-releases-rg"
-application_type = "quality-releases"
+resource_group = "azuredevops"
+application_type = "web"
 
 # Network
 virtual_network_name = "quality-releases-vnet"

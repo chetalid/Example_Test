@@ -29,10 +29,10 @@ variable "location" {
     default = "East US"
 }
 variable "application_type" {
-    default = "AppService"
+    default = "web"
 }
 variable "resource_type" {
-    default = "azure-appservice"
+    default = "vm"
 }
 variable "resource_group" {
     default = "azuredevops"

@@ -11,8 +11,8 @@ variable "location" {
 }
 
 variable "application_type" {
-    default = "AppService"
+    default = "web"
 }
 variable "resource_type" {
-    default = "quality-releases"
+    default = "nsg"
 }

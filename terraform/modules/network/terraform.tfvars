@@ -7,7 +7,7 @@ tenant_id       = "e9164a2c-aad6-42f3-8414-2ce4840890e9"
 # Resource Group/Location
 location            = "East US"
 resource_group      = "azuredevops"
-application_type    = "AppService"
+application_type    = "web"
 
 # Network
 virtual_network_name    = "quality-releases-vnet"
