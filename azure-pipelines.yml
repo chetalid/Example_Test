@@ -36,10 +36,10 @@ stages:
         commandOptions: |
           -reconfigure        
         workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'                
-        backendServiceArm: 'arm-servicon'
-        backendAzureRmResourceGroupName: 'tstate'
-        backendAzureRmStorageAccountName: 'tstate1096'
-        backendAzureRmContainerName: 'tstate'
+        backendServiceArm: 'servconn'
+        backendAzureRmResourceGroupName: 'azuredevops'
+        backendAzureRmStorageAccountName: 'storagefree1231'
+        backendAzureRmContainerName: 'mycontainer'
         backendAzureRmKey: 'terraform.tfstate'
 
     - task: CopyFiles@2
@@ -59,7 +59,7 @@ stages:
         commandOptions: |
           -auto-approve
         workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
-        environmentServiceNameAzureRM: 'arm-servicon'
+        environmentServiceNameAzureRM: 'servconn'
 
 - stage: Build
   jobs:
@@ -99,7 +99,7 @@ stages:
   - deployment: deployment_fakerestapi
     displayName: DeployFakeRestAPI
     pool: Default
-    environment: 'TEST'
+    environment: 'myTestEnvironment'
     strategy:
       runOnce:
         deploy:
@@ -107,15 +107,15 @@ stages:
           - task: AzureWebApp@1
             displayName: DeployAzureWebApp
             inputs:
-              azureSubscription: 'arm-servicon'
-              appName: 'quality-releases-appservice'
-              appType: 'quality-releases'
+              azureSubscription: 'servconn'
+              appName: 'AppService-AppService'
+              appType: 'webapp'
               package: $(Pipeline.Workspace)/fakerestapi-atf/fakerestapi-$(Build.BuildId).zip
               deploymentMethod: zipDeploy
   - deployment: deploy_to_vm
     displayName: DeployAppToVM
     environment:
-      name: 'TEST'
+      name: 'myTestEnvironment'
       resourceType: VirtualMachine
     strategy:
       runOnce:
@@ -144,7 +144,7 @@ stages:
   - deployment: run_ui_tests
     displayName: FunctionalTests
     environment:
-      name: 'TEST'
+      name: 'myTestEnvironment'
       resourceType: VirtualMachine
     strategy:
       runOnce:
