@@ -17,20 +17,18 @@ stages:
       inputs:
         secureFile: 'terraform.tfvars' 
     
-     task: TerraformInstaller@0
+    - task: TerraformInstaller@0
       displayName: 'Install Terraform'
       inputs:
         terraformVersion: '1.2.7'
             
     - task: TerraformTaskV2@2
-      displayName: 'Terraform: Initialization'
+      displayName: 'Initialize Terraform'
       inputs:
-        provider: "azurerm"
-        backendType: 'azurerm'
+        provider: 'azurerm'
         command: 'init'
-        commandOptions: |
-          -reconfigure        
-        workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'                
+        commandOptions: '-reconfigure'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
         backendServiceArm: 'servconn'
         backendAzureRmResourceGroupName: 'azuredevops'
         backendAzureRmStorageAccountName: 'storagefree1231'
