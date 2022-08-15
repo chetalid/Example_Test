@@ -1,13 +1,13 @@
 # Azure subscription vars
-subscription_id = "79f93199-ea71-4fc7-a0c1-a0f75c5ea7e1"
-client_id       = "cc696564-4afa-474a-8d3c-c41a8badaaaf"
-client_secret   = "tFoZxzMwom.L2xPSNE3Fy9zMn.YbWQA.m1"
-tenant_id       = "e9164a2c-aad6-42f3-8414-2ce4840890e9"
+subscription_id = "09b22bb3-8da4-418b-a14e-087a777b0654"
+client_id       = "ed2c218c-919f-4ffe-afdf-b804f5d135e2"
+client_secret   = "x0T8Q~1LK.76F7knPkCcZneaIw4I6Cr8_daPzco5"
+tenant_id       = "aaae9c28-9e92-488a-b112-e383c2781f91"
 
 # Resource Group/Location
 location = "East US"
-resource_group = "quality-releases-rg"
-application_type = "quality-releases"
+resource_group = "azuredevops"
+application_type = "AppService"
 
 # Network
 virtual_network_name = "quality-releases-vnet"
