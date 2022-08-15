@@ -5,7 +5,8 @@ application_type        = "quality-releases"
 
 # Virtual Machine
 vm_size                 = "Standard_B1s"
-vm_admin_username       = "azureuser"
+admin_username       = "azureuser"
+admin_password       = "AzureVMUser123"
 
 # Network
 public_ip_address_id    = "/subscriptions/09b22bb3-8da4-418b-a14e-087a777b0654/resourceGroups/azuredevops/providers/Microsoft.Network/publicIPAddresses/azuredevops-publicip"

@@ -8,9 +8,10 @@ terraform {
 }
 terraform {  
   backend "azurerm" {
-    storage_account_name = "tstate1096"
-    container_name       = "tstate"
+    storage_account_name = "storagefree1231"
+    container_name       = "mycontainer"
     key                  = "terraform.tfstate"
+    access_key           = "uDJP0VWBn5HOYxBeJrvWJDJDgImlppXtpmxNc7hYGVnr9fxYx7r3TmMJiSZ84DD4LBbhAErTF0K6+AStZcAwlQ=="
   }
 }
 provider "azurerm" {
@@ -59,6 +60,7 @@ module "vm" {
   subnet_id        = "${module.network.subnet_id_test}"  
   resource_group   = var.resource_group
   application_type = "${var.application_type}"
-  vm_admin_username = "${var.vm_admin_username}"
+  admin_username   = "${var.admin_username}"
+  admin_password   = "${var.admin_password}"
   public_ip_address_id = "${module.publicip.public_ip_address_id}"
 }

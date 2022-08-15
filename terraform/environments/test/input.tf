@@ -15,6 +15,11 @@ variable "address_prefix_test" {}
 variable "address_space" {}
 
 # VM
-variable "vm_admin_username" {
-    default = "azureuser"
+variable "admin_username" {
+    type = string
+    description = "local admin user of the virtual machine"
+}
+variable "admin_password" {
+    type = string
+    description = "password of the local admin user"
 }
