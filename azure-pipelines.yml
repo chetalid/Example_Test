@@ -25,7 +25,7 @@ stages:
         provider: 'azurerm'
         command: 'init'
         commandOptions: '-reconfigure'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/environments/test'
         backendServiceArm: 'servconn'
         backendAzureRmResourceGroupName: 'azuredevops'
         backendAzureRmStorageAccountName: 'storagefree1231'
