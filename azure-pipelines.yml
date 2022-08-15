@@ -100,7 +100,7 @@ stages:
             displayName: DeployAzureWebApp
             inputs:
               azureSubscription: 'servconn'
-              appName: 'AppService-AppService'
+              appName: 'webapp--AppService-123'
               appType: 'webapp'
               package: $(Pipeline.Workspace)/fakerestapi-atf/fakerestapi-$(Build.BuildId).zip
               deploymentMethod: zipDeploy
