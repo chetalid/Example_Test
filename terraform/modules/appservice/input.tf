@@ -17,11 +17,11 @@ variable "location" {
     default = "East US"
 }
 variable "application_type" {
-    default = "quality-releases"
+    default = "AppService"
 }
 variable "resource_type" {
     default = "azure-appservice"
 }
 variable "resource_group" {
-    default = "quality-releases-rg"
+    default = "azuredevops"
 }

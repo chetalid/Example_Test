@@ -1,6 +1,6 @@
 # Resource Group
 variable "resource_group" {
-    default = "quality-releases-rg"
+    default = "azuredevops"
 }
 variable "location" {
     default = "East US"
@@ -13,7 +13,7 @@ variable "address_space" {
     default = ["10.5.0.0/16"]
 }
 variable "application_type" {
-    default = ""
+    default = "AppService"
 }
 variable "resource_type" {
     default = "quality-releases"

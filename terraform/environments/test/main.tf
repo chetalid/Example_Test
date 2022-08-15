@@ -20,11 +20,7 @@ provider "azurerm" {
   subscription_id = var.subscription_id  
   features {}
 }
-module "resource_group" {
-  source               = "../../modules/resource_group"
-  resource_group       = var.resource_group
-  location             = var.location
-}
+
 module "network" {
   source               = "../../modules/network"
   address_space        = var.address_space
@@ -38,7 +34,7 @@ module "nsg-test" {
   location         = var.location
   application_type = var.application_type
   resource_type    = "NSG"
-  resource_group   = module.resource_group.resource_group_name
+  resource_group   = var.resource_group
   subnet_id        = module.network.subnet_id_test
   address_prefix_test = var.address_prefix_test
 }
@@ -47,21 +43,21 @@ module "appservice" {
   location         = var.location
   application_type = var.application_type
   resource_type    = "AppService"
-  resource_group   = module.resource_group.resource_group_name
+  resource_group   = var.resource_group
 }
 module "publicip" {
   source           = "../../modules/publicip"
   location         = var.location
   application_type = var.application_type
   resource_type    = "publicip"
-  resource_group   = module.resource_group.resource_group_name
+  resource_group   = var.resource_group
 }
 module "vm" {
   resource_type    = "vm"
   source           = "../../modules/vm"
   location         = "${var.location}"
   subnet_id        = "${module.network.subnet_id_test}"  
-  resource_group   = "${module.resource_group.resource_group_name}"
+  resource_group   = var.resource_group
   application_type = "${var.application_type}"
   vm_admin_username = "${var.vm_admin_username}"
   public_ip_address_id = "${module.publicip.public_ip_address_id}"

@@ -1,6 +1,6 @@
 # Resource Group/Location
 location                = "East US"
-resource_group          = "quality-releases-rg"
+resource_group          = "azuredevops"
 application_type        = "quality-releases"
 
 # Virtual Machine
@@ -8,5 +8,5 @@ vm_size                 = "Standard_B1s"
 vm_admin_username       = "azureuser"
 
 # Network
-public_ip_address_id    = "/subscriptions/79f93199-ea71-4fc7-a0c1-a0f75c5ea7e1/resourceGroups/quality-releases-rg/providers/Microsoft.Network/publicIPAddresses/quality-releases-publicip"
-subnet_id               = "/subscriptions/79f93199-ea71-4fc7-a0c1-a0f75c5ea7e1/resourceGroups/quality-releases-rg/providers/Microsoft.Network/virtualNetworks/quality-releases-NET-subnet1"
+public_ip_address_id    = "/subscriptions/09b22bb3-8da4-418b-a14e-087a777b0654/resourceGroups/azuredevops/providers/Microsoft.Network/publicIPAddresses/azuredevops-publicip"
+subnet_id               = "/subscriptions/09b22bb3-8da4-418b-a14e-087a777b0654/resourceGroups/azuredevops/providers/Microsoft.Network/virtualNetworks/azuredevops-NET-subnet1"

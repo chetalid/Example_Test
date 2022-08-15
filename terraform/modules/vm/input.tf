@@ -17,10 +17,10 @@ variable "vm_admin_username" {
 
 # Network
 variable "subnet_id" {
-    default = "/subscriptions/79f93199-ea71-4fc7-a0c1-a0f75c5ea7e1/resourceGroups/quality-releases-rg/providers/Microsoft.Network/virtualNetworks/quality-releases-NET-subnet1"
+    default = "/subscriptions/09b22bb3-8da4-418b-a14e-087a777b0654/resourceGroups/azuredevops/providers/Microsoft.Network/virtualNetworks/azuredevops-NET-subnet1"
 }
 variable "public_ip_address_id" {
-    default = "/subscriptions/79f93199-ea71-4fc7-a0c1-a0f75c5ea7e1/resourceGroups/quality-releases-rg/providers/Microsoft.Network/publicIPAddresses/quality-releases-publicip"
+    default = "/subscriptions/09b22bb3-8da4-418b-a14e-087a777b0654/resourceGroups/azuredevops/providers/Microsoft.Network/virtualNetworks/azuredevops-NET-subnet1"
 }
 
 
@@ -29,13 +29,13 @@ variable "location" {
     default = "East US"
 }
 variable "application_type" {
-    default = "quality-releases"
+    default = "AppService"
 }
 variable "resource_type" {
     default = "azure-appservice"
 }
 variable "resource_group" {
-    default = "quality-releases-rg"
+    default = "azuredevops"
 }
 variable "vm_size" {
     default = "Standard_B1s"
