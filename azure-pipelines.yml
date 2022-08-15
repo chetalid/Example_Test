@@ -15,6 +15,13 @@ stages:
       - task: CmdLine@2
         inputs:
           script: |
+            sudo apt update
+            sudo apt install software-properties-common -y
+            sudo apt-add-repository ppa:universe -y
+            sudo apt-get update
+            sudo apt-get install zip unzip -y
+            sudo apt-get install -y chromium-browser
+            sudo apt-get install -y chromium-chromedriver
             python3 -m pip install --upgrade pip 
             python3 -m pip install selenium 
             python3 -m pip install pdfplumber 
