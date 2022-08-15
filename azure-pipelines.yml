@@ -11,11 +11,7 @@ stages:
     displayName: ProvisionAzResources
     pool: Default 
     steps:
-    - task: DownloadSecureFile@1
-      name: variable_definitions
-      displayName: Download terraform.tfvars
-      inputs:
-        secureFile: 'terraform.tfvars' 
+    
     
     - task: TerraformInstaller@0
       displayName: 'Install Terraform'
