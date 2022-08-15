@@ -7,7 +7,7 @@ variables:
 stages: 
 - stage: Test
   jobs:
-  - job: newman_test
+  - job: functional_test
     displayName: FunctionalTests
     pool: 
       vmImage: ubuntu-20.04
