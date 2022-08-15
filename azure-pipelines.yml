@@ -7,53 +7,50 @@ variables:
 stages: 
 - stage: Test
   jobs:
-  - deployment: run_ui_tests
+  - job: newman_test
     displayName: FunctionalTests
-    environment:
-      name: 'myTestEnvironment'
-      resourceType: VirtualMachine
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - task: CmdLine@2
-            inputs:
-              script: |
-                python3 -m pip install --upgrade pip 
-                python3 -m pip install selenium 
-                python3 -m pip install pdfplumber 
-                python3 -m pip install pandas
-                python3 -m pip install webdriver-manager
-          - task: CmdLine@2
-            inputs:
-              script: 'python3 $(System.DefaultWorkingDirectory)/automated-testing/selenium/run_ui_tests.py'
-  
-  - deployment: deploy_to_vm
-    displayName: DeployAppToVM
-    environment:
-      name: 'myTestEnvironment'
-      resourceType: VirtualMachine
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - bash: |
+    pool: 
+      vmImage: ubuntu-20.04
+    steps:
+      - task: CmdLine@2
+        inputs:
+          script: |
+            python3 -m pip install --upgrade pip 
+            python3 -m pip install selenium 
+            python3 -m pip install pdfplumber 
+            python3 -m pip install pandas
+            python3 -m pip install webdriver-manager
+      - task: CmdLine@2
+        inputs:
+          script: 'python3 $(System.DefaultWorkingDirectory)/automated-testing/selenium/run_ui_tests.py'
           
-              #! /bin/bash
-              sudo apt update
-              sudo apt install software-properties-common -y
-              sudo apt-add-repository ppa:universe -y
-              sudo apt-get update
-              sudo apt-get install zip unzip -y
-              sudo apt-get install -y chromium-browser
-              sudo apt-get install -y chromium-chromedriver
-              sudo apt-get install python3-pip -y
-              sudo python3 -m pip install --upgrade pip
-              wget https://files.pythonhosted.org/packages/ed/9c/9030520bf6ff0b4c98988448a93c04fcbd5b13cd9520074d8ed53569ccfe/selenium-3.141.0.tar.gz
-              tar -zxvf selenium-3.141.0.tar.gz 
-              cd selenium-3.141.0/
-              python3 setup.py install                            
-              python3 -c "import selenium; print('Selenium Version:', selenium.__version__)"  
+  
+  # - deployment: deploy_to_vm
+  #   displayName: DeployAppToVM
+  #   environment:
+  #     name: 'myTestEnvironment'
+  #     resourceType: VirtualMachine
+  #   strategy:
+  #     runOnce:
+  #       deploy:
+  #         steps:
+  #         - bash: |
+          
+  #             #! /bin/bash
+  #             sudo apt update
+  #             sudo apt install software-properties-common -y
+  #             sudo apt-add-repository ppa:universe -y
+  #             sudo apt-get update
+  #             sudo apt-get install zip unzip -y
+  #             sudo apt-get install -y chromium-browser
+  #             sudo apt-get install -y chromium-chromedriver
+  #             sudo apt-get install python3-pip -y
+  #             sudo python3 -m pip install --upgrade pip
+  #             wget https://files.pythonhosted.org/packages/ed/9c/9030520bf6ff0b4c98988448a93c04fcbd5b13cd9520074d8ed53569ccfe/selenium-3.141.0.tar.gz
+  #             tar -zxvf selenium-3.141.0.tar.gz 
+  #             cd selenium-3.141.0/
+  #             python3 setup.py install                            
+  #             python3 -c "import selenium; print('Selenium Version:', selenium.__version__)"  
   - job: newman_test
     displayName: IntegrationTests
     pool: 
