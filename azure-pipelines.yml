@@ -9,8 +9,10 @@ stages:
   jobs:
   - job: functional_test
     displayName: FunctionalTests
-    pool: 
-      vmImage: ubuntu-20.04
+    environment:
+      name:  'myTestEnvironment'
+      resourceType: VirtualMachine
+      tags: myVM
     steps:
       - task: CmdLine@2
         inputs:
